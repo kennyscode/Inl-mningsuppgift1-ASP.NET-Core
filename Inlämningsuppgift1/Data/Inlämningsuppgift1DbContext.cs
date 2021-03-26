@@ -7,24 +7,34 @@ using System.Threading.Tasks;
 
 namespace Inlämningsuppgift1.Data
 {
-    public class Inlämningsuppgift1DbContext : DbContext
+    public class UppgiftDbContext : DbContext
     {
-        public Inlämningsuppgift1DbContext(DbContextOptions<Inlämningsuppgift1DbContext> options)
+        public UppgiftDbContext(DbContextOptions<UppgiftDbContext> options)
             : base(options)
         {
         }
-
-        public DbSet<Attendee> Attendee { get; set; }
-        public DbSet<Event> Event { get; set; }
         public DbSet<Organizer> Organizer { get; set; }
+        public DbSet<Event> Event { get; set; }
+        public DbSet<Attendee> Attendee { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Organizer>().ToTable("Organizer");
+            modelBuilder.Entity<Event>().ToTable("Event");
+            modelBuilder.Entity<Attendee>().ToTable("Attendee");
+        }
 
         public void Seeding()
         {
             Database.EnsureCreated();
 
-            RemoveRange(Organizer);
-            RemoveRange(Event);
-            RemoveRange(Attendee);
+            if (Event.Any() ||
+                Attendee.Any() ||
+                Organizer.Any())
+            {
+                return;
+            }
+
 
             List<Attendee> Attendees = new List<Attendee>
             {
@@ -46,11 +56,12 @@ namespace Inlämningsuppgift1.Data
 
             List<Event> Events = new List<Event>
             {
-                new Event { Title = "BestOrganizer123", Organizer = Organizers[1], Description= "0739615511", Place= "Halmstad", Adress= "wall street", Date= 21-04-04, Spots_avaible= 204, },
-                new Event { Title = "2ndOrganizer123", Organizer = Organizers[1], Description= "0739615522", Place= "Halmstad", Adress= "wall street", Date= 21-04-04, Spots_avaible= 204, },
-
+                new Event { Title = "BestEventEver", Organizer = Organizers[1], Description= "0739615511", Place= "Halmstad", Adress= "wall street 12", Date= 21-04-04, Spots_avaible= 400, },
+                new Event { Title = "2ndBestEventEver", Organizer = Organizers[1], Description= "0739615522", Place= "Los Angeles", Adress= "wall street 11", Date= 21-02-04, Spots_avaible= 204, },
+                new Event { Title = "VolleybollMatch", Organizer = Organizers[1], Description= "0739612121", Place= "Båstad", Adress= "Storgatan 14", Date= 21-08-04, Spots_avaible= 144, },
+                new Event { Title = "Armbrytning", Organizer = Organizers[1], Description= "0722612121", Place= "Halmstad", Adress= "Hamngatan 1", Date= 22-01-01, Spots_avaible= 40, }
             };
-            AddRange(Organizer);
+            AddRange(Event);
             SaveChanges();
 
         }

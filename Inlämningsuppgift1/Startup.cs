@@ -27,8 +27,11 @@ namespace Inlämningsuppgift1
         {
             services.AddRazorPages();
 
-            services.AddDbContext<Inlämningsuppgift1DbContext>(options =>
-        options.UseSqlServer(Configuration.GetConnectionString("Inlämningsuppgift1DbContext")));
+            services.AddDbContext<UppgiftDbContext>(options =>
+             options.UseSqlServer(Configuration.GetConnectionString("UppgiftDbContext")));
+
+            services.AddDatabaseDeveloperPageExceptionFilter();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
