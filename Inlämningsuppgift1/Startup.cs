@@ -27,8 +27,8 @@ namespace Inlämningsuppgift1
         {
             services.AddRazorPages();
 
-            services.AddDbContext<UppgiftDbContext>(options =>
-             options.UseSqlServer(Configuration.GetConnectionString("UppgiftDbContext")));
+            services.AddDbContext<OKDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("OKDbContext")));
 
             services.AddDatabaseDeveloperPageExceptionFilter();
 

@@ -7,10 +7,10 @@ namespace Inlämningsuppgift1.Models
 {
     public class Organizer
     {
-        public int Organizer_id { get; set; }
+        public int OrganizerId { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Phone_number { get; set; }
-        public List<Event> Event { get; set; }
+        public List<Event> Events { get; set; }
     }
 }
