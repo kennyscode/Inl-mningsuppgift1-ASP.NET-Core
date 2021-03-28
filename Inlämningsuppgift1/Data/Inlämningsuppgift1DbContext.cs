@@ -39,7 +39,7 @@ namespace Inlämningsuppgift1.Data
 
             Organizer.AddRange(new List<Organizer>()
             {
-                new Organizer() { Name = "BestEventHandler123", Email = "hihhi@hotmail.com", Phone_number= "0739615511"},
+                new Organizer() { Name = "BestEventHandler", Email = "hihhi@hotmail.com", Phone_number= "0739615511"},
                 new Organizer() { Name = "2ndOrganizer123", Email = "hahha@hotmail.com", Phone_number= "0739615510"}
 
             });
@@ -47,10 +47,10 @@ namespace Inlämningsuppgift1.Data
 
             Event.AddRange(new List<Event>()
             {
-                new Event() { Description= "TheBestEventEver", Organizer = Organizer.Where(x => x.Name=="BestEventHandler").FirstOrDefault(),  Place= "Halmstad", Adress= "wall street 12", Date= 21-04-04, Spots_available= 440 },
-                new Event() { Description= "StarGazing",  Organizer = Organizer.Where(x => x.Name=="BestEventHandler").FirstOrDefault(), Place= "Los Angeles", Adress= "wall street 10", Date= 21-05-05, Spots_available= 144 },
-                new Event() { Description= "VolleybollMatch",  Organizer = Organizer.Where(x => x.Name=="BestEventHandler").FirstOrDefault(), Place= "Båstad", Adress= "wall street 1", Date= 21-06-06, Spots_available= 255 },
-                new Event() { Description= "Armbrytning",  Organizer = Organizer.Where(x => x.Name=="BestEventHandler").FirstOrDefault(), Place= "Halmstad", Adress= "wall street 2", Date= 22-01-01, Spots_available= 100 }
+                new Event() { Description= "TheBestEventEver", Organizer = Organizer.Where(x => x.Name=="BestEventHandler").FirstOrDefault(), Place= "Halmstad", Adress= "wall street 12", Date= 210404, Spots_available= 440 },
+                new Event() { Description= "StarGazing", Organizer = Organizer.Where(x => x.Name=="BestEventHandler").FirstOrDefault(), Place= "Los Angeles", Adress= "wall street 10", Date= 210505, Spots_available= 144 },
+                new Event() { Description= "VolleybollMatch", Organizer = Organizer.Where(x => x.Name=="2ndOrganizer123").FirstOrDefault(), Place= "Båstad", Adress= "wall street 1", Date= 210606, Spots_available= 255 },
+                new Event() { Description= "Armbrytning", Organizer = Organizer.Where(x => x.Name=="2ndOrganizer123").FirstOrDefault(), Place= "Halmstad", Adress= "wall street 2", Date= 220101, Spots_available= 100 }
 
 
             });

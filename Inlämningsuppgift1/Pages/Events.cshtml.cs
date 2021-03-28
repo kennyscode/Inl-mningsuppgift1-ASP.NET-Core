@@ -23,7 +23,7 @@ namespace Inlämningsuppgift1.Pages
 
         public async Task OnGetAsync()
         {
-            Event = await _context.Event.ToListAsync();
+            Event = await _context.Event.Include(x => x.Organizer).ToListAsync();
         }
     }
 }

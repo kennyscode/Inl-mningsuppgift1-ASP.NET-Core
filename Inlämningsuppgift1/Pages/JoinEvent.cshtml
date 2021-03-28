@@ -1,0 +1,58 @@
+﻿@page
+@model Inlämningsuppgift1.Pages.JoinEventModel
+
+@{
+    ViewData["Title"] = "JoinEvent";
+}
+
+<h1>JoinEvent</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Event.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Event.Place)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Event.Adress)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Event.Date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Event.Spots_available)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Event.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Event.Place)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Event.Adress)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Event.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => Model.Event.Spots_available)
+            </td>
+            <td>
+                <form method="post">
+                    <input type="submit" value="JOIN THIS EVENT" class="btn-primary" />
+                </form> 
+            </td>
+        </tr>
+    </tbody>
+</table>
