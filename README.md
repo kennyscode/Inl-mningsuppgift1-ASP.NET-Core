@@ -4,6 +4,7 @@ Startup.cs innehåller kod som bestämmer hur webbapplikationen ska fungera, det
 
 
 •För Razor Pages så handlar det bara att beskriva de två filerna. Content Page och Page Model.
+
 Content Page i Razor Pages är en cs.html-fil som är uppbygd med det såkallade "Razor". Content Pagen är det som är synligt för användaren vid anvädning av webb-appen. Page Model är det som har hand om det logiska på webb-appen, Page modellen fungerar lite som en controller i kombination med en model över de grejer man vill visa på webbappen (viewmodel).
 
 
